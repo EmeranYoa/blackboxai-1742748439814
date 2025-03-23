@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --netflix-red: #E50914;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+}
+
+@layer components {
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black;
+  }
+  
+  .video-card {
+    @apply relative overflow-hidden rounded-md transition-transform duration-300 hover:scale-105;
+  }
+  
+  .video-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100;
+  }
+
+  .netflix-btn-primary {
+    @apply bg-[#E50914] text-white px-4 py-2 rounded font-medium hover:bg-[#f6121d] transition duration-300;
+  }
+
+  .netflix-btn-secondary {
+    @apply bg-gray-600/70 text-white px-4 py-2 rounded font-medium hover:bg-gray-600 transition duration-300;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-6 text-white;
+  }
+
+  .content-container {
+    @apply container mx-auto px-4 py-8;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b4b4b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #686868;
+}
